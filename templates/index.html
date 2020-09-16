@@ -1,9 +1,15 @@
 <!doctype html>
 <html>
   <head>
-    <title>This is the title of the webpage!</title>
+    <title>NBA Analysis</title>
   </head>
   <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
+    <h1>{{ my_header }}</h1>
+
+    <h2>Submit Player Name Below for Stats</h2>
+     <form action="{{ url_for('player') }}" method="post">
+        <input type="text" name="fname">
+        <button>Submit</button>
+    </form>
   </body>
 </html>

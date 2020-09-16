@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Is today July 4th?</title>
+</head>
+<body>
+    {% if indep_day %}
+        <h1>Happy Independence Day</h1>
+    {% else %}
+        <h1>It is not July 4th</h1>
+    {% endif %}
+    <ul>
+        {% for dog in dogs %}
+            <li>{{ dog }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
