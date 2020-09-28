@@ -2,6 +2,10 @@ from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 import datetime
 from Player import Player
+import flask_session
+import dash
+import dash_html_components as html
+
 
 # Below three lines are used to connect to existing local database containing stats on current nba players
 # for 2019-2020 season
@@ -14,8 +18,12 @@ NBACollection = NBADatabase['NBAPLAYERS']
 # current list of player attributes which are stored on the database
 playerAttributes = ["name", "minutes", "FG%", "FGA", "3Pt%", "3PtA", "FT%", "FTA"]
 
+# set app to flask name
 app = Flask(__name__)
 # use set FLASK_ENV=development to turn on the debugger
+
+import DashApp
+
 
 
 @app.route("/" , methods=["GET"])
@@ -62,3 +70,7 @@ def player_profile(player):
 @app.route('/<int:year>/<playername>/<stats>')
 def year_player_stats(year, playername, stats):
     return year + " " + playername + " " + stats
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
